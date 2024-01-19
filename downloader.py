@@ -28,17 +28,18 @@ class VideoHandler:
     def __init__(self, url, path_to_save):
 
         # Stampo lo stato dell'esecuzione
-        print("Running..")
+        print("Running...")
 
         # Ottenere l'URL del video da scaricare dall'utente
         video_url = url
         yt = YouTube(video_url)
 
         # Selezionare la prima traccia audio disponibile
-        audio = yt.streams.get_highest_resolution() or yt.streams.filter(only_audio=True).first()
-
+        audio = yt.streams.filter(only_audio=True).first()
+        #audio = yt.streams.get_highest_resolution() or yt.streams.filter(only_audio=True).first()
+        
         # Stampare il titolo del video
-        print("title: ", audio.title)
+        print("Title: ", audio.title)
 
         # Definire la destinazione del file scaricato
         destination = path_to_save
