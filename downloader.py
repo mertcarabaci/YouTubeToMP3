@@ -72,14 +72,7 @@ class MP4ToMP3Converter:
                 os.rename(old_file_path, new_file_path)
 
 
-
-path = "."
-url = input("inserisci URL di YouTube (Video/Playlist)\n-> ")
-if url.__contains__("watch"):
+def download(url):
+    path = "."
     VideoHandler(url, path)
-elif url.__contains__("playlist"):
-    PlaylistHandler(url, path)
-else:
-    print("???")
-
-MP4ToMP3Converter(path)
+    MP4ToMP3Converter(path)
